@@ -1,0 +1,31 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#container{
+    margin-top: 10rem;
+    display: flex;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	align-content: stretch;
+}
+
+
+
+#game-board-container{
+    display: flex;
+	flex-direction: row;
+    margin-right: 33rem;
+    margin-left: 33rem;
+}
+#game-board-container button{
+    padding: 1rem;
+}
+.player1-board-piece{
+    background-color: red;
+}
+.player2-board-piece{
+    background-color: blue;
+}
