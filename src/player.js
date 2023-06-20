@@ -5,4 +5,4 @@ function players(){
     const player1 = JSON.parse(JSON.stringify(shipFactor));
     const player2 = JSON.parse(JSON.stringify(shipFactor));
 }
-export {players}
+export {players};

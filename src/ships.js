@@ -32,4 +32,4 @@ function shipFunc(){
     return shipFactor;
 };
 
-export {shipFunc}
+export {shipFunc};
