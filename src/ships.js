@@ -1,7 +1,8 @@
-function ships(){
-    function shipFactory(player, carrier, battleship, cruiser, submarine, destroyer){
-        return{
-            player,
+function shipFunc(){
+    const shipFactor ={
+            playerName(name){
+                return{name};
+            },
             carrier: {
                 health: 5,
                 hit: 0,
@@ -27,9 +28,8 @@ function ships(){
                 hit: 0,
                 length: 2
             }
-        }
     };
-
+    return shipFactor;
 };
 
-export {ships}
+export {shipFunc}

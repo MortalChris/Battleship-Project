@@ -1,4 +1,6 @@
 import './style.css';
-import {ships} from './ships.js';
+import {shipFunc} from './ships.js';
+import {players} from './player.js';
 
-ships();
+const shipFactor = shipFunc();
+players();
