@@ -1,0 +1,14 @@
+Gameboard stuff
+1-Need to grab the length of each ship and display it on the board.
+    -Allow you to place ships on the board and turn it horizontal or vertical
+    -randomize ai placement
+
+2-Turn based back and forth
+    -Have Ai oppponent
+    -If player scores a hit it will keep being the same persons turn
+
+3-When A part of the ship gets hit then it does hit() function which adds 1 dmg
+    -Also need a think to stop the same button from being pressed
+    -Display (eithor or) on hit visual/text for ships
+        -when dmg = 5 then it will run isSunk() which will eventually add points
+            -If the points reach a certain max then it will trigger gameover
