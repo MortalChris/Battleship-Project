@@ -17,7 +17,9 @@ module.exports = {
             type: 'asset/resource',
         },
         ],
-    },
+    },resolve: {
+        extensions: ['.js'], // Include the file extensions you use (e.g., '.js', '.jsx', '.ts', etc.)
+      }
     //     modulePaths: ['/shared/vendor/modules'],
     //     moduleFileExtensions: ['js', 'jsx'],
     //     moduleDirectories: ['node_modules', 'bower_components', 'shared'],

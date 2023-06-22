@@ -1,4 +1,4 @@
-import { shipFunc } from './ships.js';
+import { shipFunc } from '../ships.js';
 
     test("This should give you ship health",() =>{
         const ships = shipFunc();

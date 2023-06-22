@@ -5,27 +5,67 @@ function shipFunc(){
             },
             carrier: {
                 health: 5,
-                hit: 0,
+                dmg : 0,
+                hit(){
+                    this.dmg++
+                },
+                isSunk(){
+                    if (this.dmg == this.health){
+                        return true;
+                    }
+                },
                 length: 5
             },
             battleship: {
                 health: 4,
-                hit: 0,
+                dmg : 0,
+                hit(){
+                    this.dmg++
+                },
+                isSunk(){
+                    if (this.dmg == this.health){
+                        return true;
+                    }
+                },
                 length: 4
             },
             cruiser: {
                 health: 3,
-                hit: 0,
+                dmg : 0,
+                hit(){
+                    this.dmg++
+                },
+                isSunk(){
+                    if (this.dmg == this.health){
+                        return true;
+                    }
+                },
                 length: 3
             },
             submarine: {
                 health: 3,
-                hit: 0,
+                dmg : 0,
+                hit(){
+                    this.dmg++
+                },
+                isSunk(){
+                    if (this.dmg == this.health){
+                        return true;
+                    }
+                },
                 length: 3
             },
             destroyer: {
                 health: 2,
-                hit: 0,
+                dmg : 0,
+                hit(){
+                    this.dmg++
+                },
+                isSunk(){
+                    if (this.dmg == this.health){
+                        return true;
+                    }
+                },
                 length: 2
             }
     };
