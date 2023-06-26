@@ -6,3 +6,8 @@ import {gameBoardCreation} from './gameboard.js';
 const shipFactor = shipFunc();
 gameBoardCreation();
 players();
+
+
+function placeShipsonBoard(row, column, horizontal, vertical){
+
+}
