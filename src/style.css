@@ -15,15 +15,35 @@
 }
 #ship-box-container{
     margin-top: 2rem;
-    display: flex;
-    justify-content: space-evenly;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
 	align-items: center;
+	align-content: stretch;
 }
 #ship-box-container button{
     padding: 1rem;
     border: none;
     background-color: cyan;
 }
+#ship-box-container ul{
+    list-style-type: none;
+    display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	/* align-items: flex-start;
+	align-content: stretch; */
+    border: .3rem solid black;
+}
+.Ship-List{
+    padding: 1rem;
+}
+.Ship-List:hover{
+    color: skyblue;
+}
+
 
 
 #game-board-container{

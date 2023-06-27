@@ -3,7 +3,7 @@ import {shipFunc} from './ships.js';
 import {players} from './player.js';
 import {gameBoardCreation} from './gameboard.js';
 
-const shipFactor = shipFunc();
+// const shipFactor = shipFunc();
 gameBoardCreation();
 players();
 
@@ -37,5 +37,5 @@ function placeShipsonBoard(board, row, col, direction, count){
     };
     
     // Example usage:
-    placeShipsonBoard(gameBoardArray, 2-1, 3, 'horizontal', 4);
-    console.log(gameBoardArray);
+    // placeShipsonBoard(gameBoardArray, 2-1, 3, 'horizontal', 4);
+    // console.log(gameBoardArray);

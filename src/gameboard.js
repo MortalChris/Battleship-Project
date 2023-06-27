@@ -1,5 +1,5 @@
 function gameBoardCreation(){
-    let alphabet = ["A","B","C","D","E","F","G","H","I","J"];
+    let columnArray = [0,1,2,3,4,5,6,7,8,9];
     let column = 0;
     let row = 1;
 
@@ -9,7 +9,7 @@ function gameBoardCreation(){
             const boardPiece1 = document.createElement("button");
                 boardPiece1.className = "player1-board-piece";
                 boardPiece1.id = "boardPiece1-" + i;
-                boardPiece1.dataset.column = alphabet[column];
+                boardPiece1.dataset.column = columnArray[column];
                 boardPiece1.dataset.row = row;
                 player1Board.appendChild(boardPiece1);
 
@@ -28,7 +28,7 @@ function gameBoardCreation(){
             const boardPiece2 = document.createElement("button");
                 boardPiece2.className = "player2-board-piece";
                 boardPiece2.id = "boardPiece2-" + i;
-                boardPiece2.dataset.column = alphabet[column];
+                boardPiece2.dataset.column = columnArray[column];
                 boardPiece2.dataset.row = row;
                 player2Board.appendChild(boardPiece2);
 
