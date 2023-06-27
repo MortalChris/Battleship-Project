@@ -13,10 +13,10 @@ function gameBoardCreation(){
                 boardPiece1.dataset.column = column;
                 player1Board.appendChild(boardPiece1);
 
-            if(boardPiece1.dataset.column != "9"){
+            if(boardPiece1.dataset.column != "10"){
                 // column++;
                 column++;
-            } else if(boardPiece1.dataset.row != "9"){
+            } else if(boardPiece1.dataset.row != "10"){
                 row++;
                 column = 1;
             } else{
@@ -37,11 +37,12 @@ function gameBoardCreation(){
                 if(boardPiece2.dataset.column != "10"){
                     // column++;
                     column++;
-                }  else{
+                } else if(boardPiece2.dataset.row != "10"){
                     row++;
                     column = 1;
+                } else{
+                    row = 0;
                 }
-    }
 };
 
 export {gameBoardCreation};

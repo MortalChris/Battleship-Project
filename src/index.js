@@ -27,7 +27,6 @@ function selectShip(){
             piece.addEventListener('click', () => {
                 const pieceColum = piece.dataset.column;
                 const pieceRow = piece.dataset.row;
-                console.log(pieceColum);
         });
     });
 }
