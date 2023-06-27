@@ -1,7 +1,7 @@
 function gameBoardCreation(){
-    let columnArray = [0,1,2,3,4,5,6,7,8,9];
-    let column = 0;
-    let row = 1;
+    // let rowArray = [0,1,2,3,4,5,6,7,8,9];
+    let row = 0;
+    let column = 1;
 
 
     for(let i = 1; i < 101; i++){
@@ -9,16 +9,18 @@ function gameBoardCreation(){
             const boardPiece1 = document.createElement("button");
                 boardPiece1.className = "player1-board-piece";
                 boardPiece1.id = "boardPiece1-" + i;
-                boardPiece1.dataset.column = columnArray[column];
                 boardPiece1.dataset.row = row;
+                boardPiece1.dataset.column = column;
                 player1Board.appendChild(boardPiece1);
 
-            if(boardPiece1.dataset.row != "10"){
+            if(boardPiece1.dataset.column != "9"){
                 // column++;
-                row++;
-            }  else{
                 column++;
-                row = 1;
+            } else if(boardPiece1.dataset.row != "9"){
+                row++;
+                column = 1;
+            } else{
+                row = 0;
             }
     }
 
@@ -28,16 +30,16 @@ function gameBoardCreation(){
             const boardPiece2 = document.createElement("button");
                 boardPiece2.className = "player2-board-piece";
                 boardPiece2.id = "boardPiece2-" + i;
-                boardPiece2.dataset.column = columnArray[column];
                 boardPiece2.dataset.row = row;
+                boardPiece2.dataset.column = column;
                 player2Board.appendChild(boardPiece2);
 
-                if(boardPiece2.dataset.row != "10"){
+                if(boardPiece2.dataset.column != "10"){
                     // column++;
-                    row++;
-                }  else{
                     column++;
-                    row = 1;
+                }  else{
+                    row++;
+                    column = 1;
                 }
     }
 };

@@ -4,15 +4,6 @@
     background-color: slategrey;
 }
 
-#container{
-    /* margin-top: 10rem;
-    display: flex;
-	flex-wrap: nowrap;
-	justify-content: center;
-	align-items: center;
-	align-content: stretch; */
-
-}
 #ship-box-container{
     margin-top: 2rem;
 	display: flex;
@@ -42,6 +33,10 @@
 }
 .Ship-List:hover{
     color: skyblue;
+    cursor: pointer;
+}
+.Ship-List:active{
+    color:blueviolet;
 }
 
 

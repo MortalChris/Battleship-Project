@@ -20,6 +20,19 @@ const gameBoardArray = [
     [0,0,0,0,0,0,0,0,0,0]
     ];
 
+
+function selectShip(){
+    const currentShip = document.querySelectorAll(".player1-board-piece");
+        currentShip.forEach((piece) => {
+            piece.addEventListener('click', () => {
+                const pieceColum = piece.dataset.column;
+                const pieceRow = piece.dataset.row;
+                console.log(pieceColum);
+        });
+    });
+}
+selectShip();
+
 function placeShipsonBoard(board, row, col, direction, count){
         if (direction === 'horizontal') {
             for (let i = col; i < col + count; i++) {
