@@ -44,5 +44,5 @@ function gameBoardCreation(){
                     row = 0;
                 }
 };
-
+}
 export {gameBoardCreation};
