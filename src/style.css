@@ -28,6 +28,9 @@
 	align-content: stretch; */
     border: .3rem solid black;
 }
+#VH-Switch:hover{
+    background-color: rgb(1, 131, 206);
+}
 .Ship-List{
     padding: 1rem;
 }

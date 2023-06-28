@@ -29,7 +29,7 @@ function shipFunc(){
                 },
                 length: 4
             },
-            battleship: {
+            cruiser: {
                 health: 3,
                 dmg : 0,
                 hit(){
