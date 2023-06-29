@@ -11,6 +11,7 @@ function gameBoardCreation(){
                 boardPiece1.id = "boardPiece1-" + i;
                 boardPiece1.dataset.row = row;
                 boardPiece1.dataset.column = column;
+                // boardPiece1.dataset.rowcol = row + "" + column;
                 player1Board.appendChild(boardPiece1);
 
             if(boardPiece1.dataset.column != "10"){
@@ -24,7 +25,7 @@ function gameBoardCreation(){
             }
     }
 
-    
+    row=0;
     for(let i = 1; i < 101; i++){
         const player2Board = document.getElementById('player2-board');
             const boardPiece2 = document.createElement("button");

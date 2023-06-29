@@ -4,9 +4,8 @@ import {players} from './player.js';
 import {gameBoardCreation} from './gameboard.js';
 
 // const ships = shipFunc();
-gameBoardCreation();
 players();
-
+gameBoardCreation();
 
 const gameBoardArray = [
     [0,0,0,0,0,0,0,0,0,0],
@@ -56,7 +55,7 @@ function selectShip(){
             piece.addEventListener('click', () => {
                 const pieceColum = piece.dataset.column;
                 const pieceRow = piece.dataset.row;
-                placeShipsonBoard(gameBoardArray, pieceRow, pieceColum-1, switchButton.textContent, player1[selectedShip].length);
+                placeShipsonBoard(gameBoardArray, pieceRow-0, pieceColum-1, switchButton.textContent, player1[selectedShip].length);//piefcerow-0 to convert string into number
         });
     });
 }
@@ -66,25 +65,32 @@ selectShip();
 function placeShipsonBoard(board, row, col, direction, count){
         if (direction === 'Horizontal') {
             for (let i = col; i < col + count; i++) {
-                if (i < 10 && board[i][row] === 0) {
+            if (i < 10 && board[i][row] === 0) {
                 board[row][i] = 1;
+                let newCol = i + 1
+                displayShips(row,newCol);
                 }
-        }
+            }
         } else if (direction === 'Vertical') {
             for (let i = row; i < row + count; i++) {
             if (i < 10 && board[i][col] === 0) {
                 board[i][col] = 1;
+                console.log(row + count);
+                displayShips(i,col);
                 }
             }
         }
+        
         console.log(gameBoardArray);
     };
 
 
 function displayShips(row, column){
-    // boardPiece1.dataset.row
-    // boardPiece1.dataset.column
+    const displayBoardPiece = document.querySelector(`.player1-board-piece[data-row="${row}"][data-column="${column}"]`);
+    console.log(displayBoardPiece);
+    displayBoardPiece.style.backgroundColor  = "red";
 }
+
     // Example usage:
     // placeShipsonBoard(gameBoardArray, 2-1, 3, 'horizontal', 4);
     
