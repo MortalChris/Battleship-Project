@@ -97,7 +97,7 @@ function placeShipsonBoard(board, row, col, direction, count){
         if (direction === 'Horizontal') {
             for (let i = col; i < col + count; i++) {
 
-            if (i >= 10 || board[row][i] === 1) {// 
+            if (i >= 10 || board[row][i] === 1 || board[row][i] === null ) {// 
                 allowShip = false;
                 break;
                 }else{
@@ -117,7 +117,7 @@ function placeShipsonBoard(board, row, col, direction, count){
         } else if (direction === 'Vertical') {
             for (let i = row; i < row + count; i++) {
 
-            if (i >= 10 || board[i][col] === 1) {// 
+            if (i >= 10 || board[i][col] === 1 || board[row][i] === null ) {// 
                 allowShip = false;
                 break;
                 }else{
@@ -133,9 +133,7 @@ function placeShipsonBoard(board, row, col, direction, count){
             }else{
                 console.log("You tried to place the ship vertically but there is already a ship there");
             }
-
         }
-        
         console.log(gameBoardArray);
     };
 
