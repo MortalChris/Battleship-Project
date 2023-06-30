@@ -55,7 +55,37 @@ function selectShip(){
             piece.addEventListener('click', () => {
                 const pieceColum = piece.dataset.column;
                 const pieceRow = piece.dataset.row;
-                placeShipsonBoard(gameBoardArray, pieceRow-0, pieceColum-1, switchButton.textContent, player1[selectedShip].length);//piefcerow-0 to convert string into number
+                placeShipsonBoard(gameBoardArray, pieceRow-0, pieceColum-1, switchButton.textContent, player1[selectedShip].length);//pieceRow-0 to convert string into number
+
+                switch(selectedShip){
+                    case "carrier":
+                        document.querySelector('#carrier').id = "carrier-Selected";
+                        // document.querySelector('#carrier') need to either delete it or make it grayed out
+                        selectedShip = " ";
+                        break;
+                    case "battleship":
+                        document.querySelector('#battleship').id = "battleship-Selected";
+                        // document.querySelector('#battleship') need to either delete it or make it grayed out
+                        selectedShip = " ";
+                        break;
+                    case "cruiser":
+                        document.querySelector('#cruiser').id = "cruiser-Selected";
+                        // document.querySelector('#cruiser') need to either delete it or make it grayed out
+                        selectedShip = " ";
+                        break;
+                    case "submarine":
+                        document.querySelector('#submarine').id = "submarine-Selected";
+                        // document.querySelector('#submarine') need to either delete it or make it grayed out
+                        selectedShip = " ";
+                        break;
+                    case "destroyer":
+                        document.querySelector('#destroyer').id = "destroyer-Selected";
+                        // document.querySelector('#destroyer') need to either delete it or make it grayed out
+                        selectedShip = " ";
+                            break;
+                    default:
+                        console.log("nothing was selected");
+                }
         });
     });
 }
@@ -63,22 +93,47 @@ selectShip();
 
 
 function placeShipsonBoard(board, row, col, direction, count){
+    let allowShip = true;
         if (direction === 'Horizontal') {
             for (let i = col; i < col + count; i++) {
-            if (i < 10 && board[i][row] === 0) {
-                board[row][i] = 1;
-                let newCol = i + 1
-                displayShips(row,newCol);
+
+            if (i >= 10 || board[row][i] === 1) {// 
+                allowShip = false;
+                break;
+                }else{
+                allowShip = true;
                 }
             }
+            if(allowShip){
+                for (let i = col; i < col + count; i++) {
+                    board[row][i] = 1;
+                    let newCol = i + 1
+                    displayShips(row,newCol);
+                }
+            }else{
+                console.log("You tried to place the ship horizontally but there is already a ship there");
+            }
+
         } else if (direction === 'Vertical') {
             for (let i = row; i < row + count; i++) {
-            if (i < 10 && board[i][col] === 0) {
-                board[i][col] = 1;
-                console.log(row + count);
-                displayShips(i,col);
+
+            if (i >= 10 || board[i][col] === 1) {// 
+                allowShip = false;
+                break;
+                }else{
+                allowShip = true;
                 }
             }
+            if(allowShip) {
+                for (let i = row; i < row + count; i++) {
+                    board[i][col] = 1;
+                    console.log(row + count);
+                    displayShips(i,col);
+                }
+            }else{
+                console.log("You tried to place the ship vertically but there is already a ship there");
+            }
+
         }
         
         console.log(gameBoardArray);
