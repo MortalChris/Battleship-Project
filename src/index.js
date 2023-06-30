@@ -36,11 +36,11 @@ switchVertOrHori();
 
 // };
 
-
+let selectedShip;
 function selectShip(){
     const playersObj = players();
     const player1 = playersObj.player1;
-    let selectedShip;
+    
 
     const shipList = document.querySelectorAll('.Ship-List');
     shipList.forEach(ship => { // Add a click event listener to each button
@@ -56,40 +56,44 @@ function selectShip(){
                 const pieceColum = piece.dataset.column;
                 const pieceRow = piece.dataset.row;
                 placeShipsonBoard(gameBoardArray, pieceRow-0, pieceColum-1, switchButton.textContent, player1[selectedShip].length);//pieceRow-0 to convert string into number
-
-                switch(selectedShip){
-                    case "carrier":
-                        document.querySelector('#carrier').id = "carrier-Selected";
-                        // document.querySelector('#carrier') need to either delete it or make it grayed out
-                        selectedShip = " ";
-                        break;
-                    case "battleship":
-                        document.querySelector('#battleship').id = "battleship-Selected";
-                        // document.querySelector('#battleship') need to either delete it or make it grayed out
-                        selectedShip = " ";
-                        break;
-                    case "cruiser":
-                        document.querySelector('#cruiser').id = "cruiser-Selected";
-                        // document.querySelector('#cruiser') need to either delete it or make it grayed out
-                        selectedShip = " ";
-                        break;
-                    case "submarine":
-                        document.querySelector('#submarine').id = "submarine-Selected";
-                        // document.querySelector('#submarine') need to either delete it or make it grayed out
-                        selectedShip = " ";
-                        break;
-                    case "destroyer":
-                        document.querySelector('#destroyer').id = "destroyer-Selected";
-                        // document.querySelector('#destroyer') need to either delete it or make it grayed out
-                        selectedShip = " ";
-                            break;
-                    default:
-                        console.log("nothing was selected");
-                }
         });
     });
+    return selectedShip;
 }
 selectShip();
+
+
+function disableShipSelect(){//Disables the ability to click on the type of ships to place
+    switch(selectedShip){
+        case "carrier":
+            document.querySelector('#carrier').id = "carrier-Selected";
+            // document.querySelector('#carrier') need to either delete it or make it grayed out
+            selectedShip = " ";
+            break;
+        case "battleship":
+            document.querySelector('#battleship').id = "battleship-Selected";
+            // document.querySelector('#battleship') need to either delete it or make it grayed out
+            selectedShip = " ";
+            break;
+        case "cruiser":
+            document.querySelector('#cruiser').id = "cruiser-Selected";
+            // document.querySelector('#cruiser') need to either delete it or make it grayed out
+            selectedShip = " ";
+            break;
+        case "submarine":
+            document.querySelector('#submarine').id = "submarine-Selected";
+            // document.querySelector('#submarine') need to either delete it or make it grayed out
+            selectedShip = " ";
+            break;
+        case "destroyer":
+            document.querySelector('#destroyer').id = "destroyer-Selected";
+            // document.querySelector('#destroyer') need to either delete it or make it grayed out
+            selectedShip = " ";
+                break;
+        default:
+            console.log("Nothing/Or the ship already was selected");
+    }
+};
 
 
 function placeShipsonBoard(board, row, col, direction, count){
@@ -142,6 +146,8 @@ function displayShips(row, column){
     const displayBoardPiece = document.querySelector(`.player1-board-piece[data-row="${row}"][data-column="${column}"]`);
     console.log(displayBoardPiece);
     displayBoardPiece.style.backgroundColor  = "red";
+
+    disableShipSelect();
 }
 
     // Example usage:
