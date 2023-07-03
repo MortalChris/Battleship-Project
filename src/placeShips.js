@@ -66,27 +66,27 @@ function placeShips(){
         switch(selectedShip){
             case "carrier":
                 document.querySelector('#carrier').id = "carrier-Selected";
-                // document.querySelector('#carrier') need to either delete it or make it grayed out
+                document.querySelector('#carrier-Selected').style.color = "gray";
                 selectedShip = " ";
                 break;
             case "battleship":
                 document.querySelector('#battleship').id = "battleship-Selected";
-                // document.querySelector('#battleship') need to either delete it or make it grayed out
+                document.querySelector('#battleship-Selected').style.color = "gray";
                 selectedShip = " ";
                 break;
             case "cruiser":
                 document.querySelector('#cruiser').id = "cruiser-Selected";
-                // document.querySelector('#cruiser') need to either delete it or make it grayed out
+                document.querySelector('#cruiser-Selected').style.color = "gray";
                 selectedShip = " ";
                 break;
             case "submarine":
                 document.querySelector('#submarine').id = "submarine-Selected";
-                // document.querySelector('#submarine') need to either delete it or make it grayed out
+                document.querySelector('#submarine-Selected').style.color = "gray";
                 selectedShip = " ";
                 break;
             case "destroyer":
                 document.querySelector('#destroyer').id = "destroyer-Selected";
-                // document.querySelector('#destroyer') need to either delete it or make it grayed out
+                document.querySelector('#destroyer-Selected').style.color = "gray";
                 selectedShip = " ";
                     break;
             default:
@@ -151,7 +151,9 @@ function placeShips(){
         // Example usage:
         // placeShipsonBoard(gameBoardArray, 2-1, 3, 'horizontal', 4);
         
-    
+    function highlightShipOnBoard(row, column){
+        
+    }
 
 }
 
