@@ -55,7 +55,7 @@ function selectShip(){
             piece.addEventListener('click', () => {
                 const pieceColum = piece.dataset.column;
                 const pieceRow = piece.dataset.row;
-                placeShipsonBoard(gameBoardArray, pieceRow-0, pieceColum-1, switchButton.textContent, player1[selectedShip].length);//pieceRow-0 to convert string into number
+                placeShipsonBoard(gameBoardArray, pieceRow-0, pieceColum, switchButton.textContent, player1[selectedShip].length);//pieceRow-0 to convert string into number
         });
     });
     return selectedShip;
@@ -99,17 +99,17 @@ function disableShipSelect(){//Disables the ability to click on the type of ship
 function placeShipsonBoard(board, row, col, direction, count){
     let allowShip = true;
         if (direction === 'Horizontal') {
-            for (let i = col; i < col + count; i++) {
-
-            if (i >= 10 || board[row][i] === 1 || board[row][i] === null ) {// 
-                allowShip = false;
-                break;
-                }else{
-                allowShip = true;
+            let difCol = col-1;
+            for (let i = difCol; i < difCol + count; i++) {
+                if (i >= 10 || board[row][i] === 1 || board[row][i] === null ) {// 
+                    allowShip = false;
+                    break;
+                    }else{
+                    allowShip = true;
+                    }
                 }
-            }
             if(allowShip){
-                for (let i = col; i < col + count; i++) {
+                for (let i = difCol; i < difCol + count; i++) {
                     board[row][i] = 1;
                     let newCol = i + 1
                     displayShips(row,newCol);
@@ -120,18 +120,17 @@ function placeShipsonBoard(board, row, col, direction, count){
 
         } else if (direction === 'Vertical') {
             for (let i = row; i < row + count; i++) {
-
-            if (i >= 10 || board[i][col] === 1 || board[row][i] === null ) {// 
-                allowShip = false;
-                break;
-                }else{
-                allowShip = true;
+                if (i >= 10 || board[i][col] === 1 || board[i][col] === null ) {// 
+                    allowShip = false;
+                    break;
+                    }else{
+                    allowShip = true;
+                    }
                 }
-            }
             if(allowShip) {
                 for (let i = row; i < row + count; i++) {
                     board[i][col] = 1;
-                    console.log(row + count);
+                    console.log("Col is " + col);
                     displayShips(i,col);
                 }
             }else{
