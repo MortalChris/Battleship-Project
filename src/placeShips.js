@@ -48,19 +48,26 @@ function placeShips(){
                 selectedShip = ship.id;
             });
         }); 
-    
         const currentShip = document.querySelectorAll(".player1-board-piece");
             currentShip.forEach((piece) => {
                 piece.addEventListener('click', () => {
-                    const pieceColum = piece.dataset.column;
+                    const pieceColumn = piece.dataset.column;
                     const pieceRow = piece.dataset.row;
-                    placeShipsonBoard(gameBoardArray, pieceRow-0, pieceColum, switchButton.textContent, player1[selectedShip].length);//pieceRow-0 to convert string into number
-            });
+                    placeShipsonBoard(gameBoardArray, pieceRow-0, pieceColumn, switchButton.textContent, player1[selectedShip].length);//pieceRow-0 to convert string into number
+            })
+                piece.addEventListener('mouseover', () => {
+                    const pieceColumn = piece.dataset.column;
+                    const pieceRow = piece.dataset.row;
+                    highlightShipOnBoard(gameBoardArray, pieceRow-0, pieceColumn, switchButton.textContent, player1[selectedShip].length);
+                })
+                piece.addEventListener('mouseout', () => {
+
+                    removeHighlightOnBoard();
+                });
         });
         return selectedShip;
     }
     selectShip();
-    
     
     function disableShipSelect(){//Disables the ability to click on the type of ships to place
         switch(selectedShip){
@@ -150,9 +157,56 @@ function placeShips(){
     
         // Example usage:
         // placeShipsonBoard(gameBoardArray, 2-1, 3, 'horizontal', 4);
-        
-    function highlightShipOnBoard(row, column){
-        
+    function highlightShipOnBoard(board,row, col, direction, count) {
+        let allowShip = true;
+
+        if (direction === 'Horizontal') {
+            let difCol = col-1;
+            for (let i = difCol; i < difCol + count; i++) {
+                if (i >= 10 || board[row][i] === 1 || board[row][i] === null ) {
+                    allowShip = false;
+                    break;
+                } else{
+                    allowShip = true;
+                }  
+            }
+            if(allowShip) {
+                for (let i = difCol; i < difCol + count; i++) {
+                    let newCol = i + 1;
+                    const cell = document.querySelector(`.player1-board-piece[data-row="${row}"][data-column="${newCol}"]`);
+                    cell.style.backgroundColor = 'pink';
+                }
+            }
+
+
+        } else if (direction === 'Vertical') {
+            for (let i = row; i < row + count; i++) {
+                if( i >= 10 || board[i][col] === 1 || board[i][col] === null ) {
+                    allowShip = false;
+                    break;
+                }else{
+                    allowShip = true;
+                }
+
+                
+            }
+            if(allowShip) {
+                for (let i = row; i < row + count; i++) {
+                    const cell = document.querySelector(`.player1-board-piece[data-row="${i}"][data-column="${col}"]`);
+                    cell.style.backgroundColor = 'pink';
+                }
+            }
+        }
+    }
+
+    function removeHighlightOnBoard() {
+        const cells = document.querySelectorAll('.player1-board-piece');
+        cells.forEach((cell) => {
+            if(cell.style.backgroundColor != "red"){
+                cell.style.backgroundColor = ''; // Reset the background color
+            }
+        });
+
     }
 
 }
