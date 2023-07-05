@@ -1,10 +1,10 @@
 import {players} from './player.js';
-import {gameBoardCreation} from './gameboard.js';
+// import {gameBoardCreation} from './gameboard.js';
 
 function placeShips(){
 
-    players();
-    gameBoardCreation();
+    // players();
+    // gameBoardCreation();
 
     const gameBoardArray = [
         [0,0,0,0,0,0,0,0,0,0],

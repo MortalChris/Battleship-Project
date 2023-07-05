@@ -1,8 +1,8 @@
 function shipFunc(){
     const shipFactor ={
-            playerName(name){
-                return{name};
-            },
+        // playerName(name){
+        //     return{name};
+        // },
             carrier: {
                 health: 5,
                 dmg : 0,
