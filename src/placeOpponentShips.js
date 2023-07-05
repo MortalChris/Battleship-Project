@@ -45,6 +45,7 @@ function placeOpponentShips(){
                     if (i >= 10 || board[row][i] === 1 || board[row][i] === null ) {// 
                         allowShip = false;
                         break;
+                        
                         }else{
                         allowShip = true;
                         }
@@ -53,10 +54,15 @@ function placeOpponentShips(){
                     for (let i = difCol; i < difCol + count; i++) {
                         board[row][i] = 1;
                         let newCol = i + 1
-                        displayShips(row,newCol);
+                        // displayShips(row,newCol);
                     }
                 }else{
-                    console.log("You tried to place the ship horizontally but there is already a ship there");
+                    let newBoard = board;
+                    let newRow = Math.floor(Math.random() * 9);
+                    let newColumn = Math.floor(Math.random() * 10) + 1;
+                    let newDirection = direction;
+                    let newCount = count;
+                    placeShipsonBoard(newBoard, newRow, newColumn, newDirection, newCount);
                 }
     
             } else if (direction === 'Vertical') {
@@ -72,21 +78,26 @@ function placeOpponentShips(){
                     for (let i = row; i < row + count; i++) {
                         board[i][col] = 1;
                         console.log("Col is " + col);
-                        displayShips(i,col);
+                        // displayShips(i,col);
                     }
                 }else{
-                    console.log("You tried to place the ship vertically but there is already a ship there");
+                    let newBoard = board;
+                    let newRow = Math.floor(Math.random() * 9);
+                    let newColumn = Math.floor(Math.random() * 10) + 1;
+                    let newDirection = direction;
+                    let newCount = count;
+                    placeShipsonBoard(newBoard, newRow, newColumn, newDirection, newCount);
                 }
             }
             console.log(gameBoardArrayOpponent);
         };
 
 
-        function displayShips(row, column){
-            const displayBoardPiece = document.querySelector(`.player2-board-piece[data-row="${row}"][data-column="${column}"]`);
-            console.log(displayBoardPiece);
-            displayBoardPiece.style.backgroundColor  = "red";
-        }
+        // function displayShips(row, column){
+        //     const displayBoardPiece = document.querySelector(`.player2-board-piece[data-row="${row}"][data-column="${column}"]`);
+        //     console.log(displayBoardPiece);
+        //     displayBoardPiece.style.backgroundColor  = "red";
+        // }
 }
 
 export {placeOpponentShips};
