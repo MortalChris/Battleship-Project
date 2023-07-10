@@ -15,11 +15,18 @@ module.exports = {
             {
             test: /\.(png|svg|jpg|jpeg|gif)$/i,
             type: 'asset/resource',
-        },
+        },      
+        //     {
+        //     test: /\.js$/,
+        //     exclude: /node_modules/,
+        //     use: {
+        //     loader: 'babel-loader'
+        //     }
+        // },
         ],
     },resolve: {
         extensions: ['.js'], // Include the file extensions you use (e.g., '.js', '.jsx', '.ts', etc.)
-      }
+    }
     //     modulePaths: ['/shared/vendor/modules'],
     //     moduleFileExtensions: ['js', 'jsx'],
     //     moduleDirectories: ['node_modules', 'bower_components', 'shared'],

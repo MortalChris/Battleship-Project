@@ -43,6 +43,16 @@
 }
 
 
+#turn-text-container{
+    margin-top: 2rem;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: center;
+	align-content: stretch;
+}
+
 
 #game-board-container{
     display: flex;

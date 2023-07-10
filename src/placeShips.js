@@ -31,9 +31,7 @@ function placeShips(){
         })
     }
     switchVertOrHori();
-    // function selectShip(){
     
-    // };
     
     let selectedShip;
     function selectShip(){
@@ -44,7 +42,7 @@ function placeShips(){
         const shipList = document.querySelectorAll('.Ship-List');
         shipList.forEach(ship => { // Add a click event listener to each button
             ship.addEventListener('click', () => {
-                console.log(ship.id);
+                // console.log(ship.id);
                 selectedShip = ship.id;
             });
         }); 
@@ -69,35 +67,53 @@ function placeShips(){
     }
     selectShip();
     
+    let number = document.querySelector("title");
+    let currentShipsOnBoard = 0;
+
     function disableShipSelect(){//Disables the ability to click on the type of ships to place
         switch(selectedShip){
             case "carrier":
                 document.querySelector('#carrier').id = "carrier-Selected";
                 document.querySelector('#carrier-Selected').style.color = "gray";
                 selectedShip = " ";
+
+                currentShipsOnBoard += 1;
+                number.id = currentShipsOnBoard;
                 break;
             case "battleship":
                 document.querySelector('#battleship').id = "battleship-Selected";
                 document.querySelector('#battleship-Selected').style.color = "gray";
                 selectedShip = " ";
+
+                currentShipsOnBoard += 1;
+                number.id = currentShipsOnBoard;
                 break;
             case "cruiser":
                 document.querySelector('#cruiser').id = "cruiser-Selected";
                 document.querySelector('#cruiser-Selected').style.color = "gray";
                 selectedShip = " ";
+
+                currentShipsOnBoard += 1;
+                number.id = currentShipsOnBoard;
                 break;
             case "submarine":
                 document.querySelector('#submarine').id = "submarine-Selected";
                 document.querySelector('#submarine-Selected').style.color = "gray";
                 selectedShip = " ";
+
+                currentShipsOnBoard += 1;
+                number.id = currentShipsOnBoard;
                 break;
             case "destroyer":
                 document.querySelector('#destroyer').id = "destroyer-Selected";
                 document.querySelector('#destroyer-Selected').style.color = "gray";
                 selectedShip = " ";
-                    break;
+
+                currentShipsOnBoard += 1;
+                number.id = currentShipsOnBoard;
+                break;
             default:
-                console.log("Nothing/Or the ship already was selected");
+                // console.log("Nothing/Or the ship already was selected");
         }
     };
     
@@ -149,7 +165,7 @@ function placeShips(){
     
     function displayShips(row, column){
         const displayBoardPiece = document.querySelector(`.player1-board-piece[data-row="${row}"][data-column="${column}"]`);
-        console.log(displayBoardPiece);
+        // console.log(displayBoardPiece);
         displayBoardPiece.style.backgroundColor  = "red";
     
         disableShipSelect();
@@ -208,7 +224,6 @@ function placeShips(){
         });
 
     }
-
 }
 
-export {placeShips}
+export {placeShips};
