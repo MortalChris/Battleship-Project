@@ -67,8 +67,10 @@ function placeShips(){
     }
     selectShip();
     
+    
     let number = document.querySelector("title");
     let currentShipsOnBoard = 0;
+
 
     function disableShipSelect(){//Disables the ability to click on the type of ships to place
         switch(selectedShip){
@@ -166,9 +168,13 @@ function placeShips(){
     function displayShips(row, column){
         const displayBoardPiece = document.querySelector(`.player1-board-piece[data-row="${row}"][data-column="${column}"]`);
         // console.log(displayBoardPiece);
+        displayBoardPiece.dataset.ship = selectedShip;
         displayBoardPiece.style.backgroundColor  = "red";
     
-        disableShipSelect();
+
+        setTimeout(() => {//delayed this so that selectedShip doesnt get over-ridded too soon
+            disableShipSelect();
+        }, 1000);
     }
     
         // Example usage:
