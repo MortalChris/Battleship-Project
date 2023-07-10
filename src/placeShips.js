@@ -171,10 +171,9 @@ function placeShips(){
         displayBoardPiece.dataset.ship = selectedShip;
         displayBoardPiece.style.backgroundColor  = "red";
     
-
         setTimeout(() => {//delayed this so that selectedShip doesnt get over-ridded too soon
             disableShipSelect();
-        }, 1000);
+        }, 1);
     }
     
         // Example usage:

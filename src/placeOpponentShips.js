@@ -17,9 +17,9 @@ function placeOpponentShips(){
         [0,0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0,0,0]
         ];
-        
-    function randomizeShips(ships){
         let randomShip;
+    function randomizeShips(ships){
+        
         let directionArray = ["Horizontal", "Vertical"];
 
         const playersObj = players();
@@ -54,7 +54,7 @@ function placeOpponentShips(){
                     for (let i = difCol; i < difCol + count; i++) {
                         board[row][i] = 1;
                         let newCol = i + 1
-                        // displayShips(row,newCol);
+                        addShipNameToBoard(row,newCol);
                     }
                 }else{
                     let newBoard = board;
@@ -78,7 +78,7 @@ function placeOpponentShips(){
                     for (let i = row; i < row + count; i++) {
                         board[i][col] = 1;
                         console.log("Col is " + col);
-                        // displayShips(i,col);
+                        addShipNameToBoard(i,col);
                     }
                 }else{
                     let newBoard = board;
@@ -93,11 +93,18 @@ function placeOpponentShips(){
         };
 
 
-        // function displayShips(row, column){
-        //     const displayBoardPiece = document.querySelector(`.player2-board-piece[data-row="${row}"][data-column="${column}"]`);
-        //     console.log(displayBoardPiece);
-        //     displayBoardPiece.style.backgroundColor  = "red";
-        // }
+        function addShipNameToBoard(row, column){
+            const displayBoardPiece = document.querySelector(`.player2-board-piece[data-row="${row}"][data-column="${column}"]`);
+            console.log(displayBoardPiece);
+            if (displayBoardPiece) {
+                displayBoardPiece.dataset.ship = randomShip;
+                // displayBoardPiece.style.backgroundColor = "red";
+            } else {
+                console.log(`Element not found for row ${row} and column ${column}`);
+            }
+            // displayBoardPiece.style.backgroundColor  = "red";
+        }
+        return gameBoardArrayOpponent;
 }
 
 export {placeOpponentShips};

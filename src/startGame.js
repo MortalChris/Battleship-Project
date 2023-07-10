@@ -1,8 +1,7 @@
-import {placeOpponentShips} from './placeOpponentShips.js';
 import {players} from './player.js';
 const {player2} = players();
-placeOpponentShips();
-
+import {placeOpponentShips} from './placeOpponentShips.js';
+const gameBoardArrayOpponent = placeOpponentShips();
 
 function startGame(){
 const turnText = document.getElementById("turn-text");
@@ -13,12 +12,16 @@ const turnText = document.getElementById("turn-text");
 
         player1Board.forEach((piece) => {
             piece.addEventListener('click', () => {
-                if(numberTitle.id == 5){
-                    console.log("Number equals 5");
-                    turnText.textContent = "Its player1's turn";
-                    attackPlayer2Board();
-                    // turn();
-                }
+                setTimeout(() => {//delayed this so that it syncs up with disableShipSelect() in placeShips, bet I could do an await function or something 
+                    if(numberTitle.id == 5){
+                        console.log("Number equals 5");
+                        console.log(gameBoardArrayOpponent + "wasdwadaw");
+                        turnText.textContent = "Its player1's turn";
+                        attackPlayer2Board();
+                        // turn();
+                    }
+            }, 1);
+
             })
         })
     }checkIfAllShipsPlaced();
@@ -30,10 +33,10 @@ const turnText = document.getElementById("turn-text");
             piece.addEventListener('click', () => {
                 let p2Col = piece.dataset.column;
                 let p2Row = piece.dataset.column;
-                
+
                 if (gameBoardArrayOpponent[p2Row][p2Col] === 1){
                     //execute player2 dmg object function
-                    player2[selectedShip].hit();
+                    player2[pieceSelectedShip].hit();
                 }else{
                     console.log("You Missed");
                 }
