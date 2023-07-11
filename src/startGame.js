@@ -15,7 +15,7 @@ function startGame(){
                 setTimeout(() => {//delayed this so that it syncs up with disableShipSelect() in placeShips, bet I could do an await function or something 
                     if(numberTitle.id == 5){
                         console.log("Number equals 5");
-                        console.log(gameBoardArrayOpponent + "wasdwadaw");
+                        // console.log(gameBoardArrayOpponent + "wasdwadaw");
                         turnText.textContent = "Its player1's turn";
                         attackPlayer2Board();
                         // turn();
