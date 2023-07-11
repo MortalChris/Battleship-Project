@@ -29,19 +29,24 @@ function startGame(){
 
     function attackPlayer2Board(){
         const player2Board = document.querySelectorAll(".player2-board-piece");
+
         player2Board.forEach((piece) => {
             piece.addEventListener('click', () => {
-                let p2Col = piece.dataset.column;
-                let p2Row = piece.dataset.row;
+                let p2Col = parseInt(piece.dataset.column) - 1;
+                let p2Row = parseInt(piece.dataset.row);
+                console.log(p2Col + ":Col   Row:" + p2Row);
+                console.log(gameBoardArrayOpponent[p2Row]);
 
-                if (gameBoardArrayOpponent[p2Row][p2Col] === 1){
-                    //execute player2 dmg object function
-                    const displayBoardPiece2 = document.querySelector(`.player2-board-piece[data-row="${p2Row}"][data-column="${p2Col}"]`);
+                if (gameBoardArrayOpponent[p2Row][p2Col] === 1){//execute player2 dmg object function
+                    const displayBoardPiece2 = document.querySelector(`.player2-board-piece[data-row="${p2Row}"][data-column="${p2Col + 1}"]`);
                     let pieceSelectedShip = displayBoardPiece2.dataset.ship;
                     
-                    displayHitOrMiss(displayBoardPiece2);
                     console.log(displayBoardPiece2.dataset.ship);
+                    console.log(player2);
                     player2[pieceSelectedShip].hit;
+                    console.log(player2);
+
+                    displayHitOrMiss(displayBoardPiece2);
                 }else{
                     console.log("You Missed");
                 }
@@ -51,7 +56,7 @@ function startGame(){
 
 
     function displayHitOrMiss(displayBoardPiece2){
-        displayBoardPiece2.style.backgroundColor = "puple";
+        displayBoardPiece2.style.backgroundColor = "red";
     }
 
     let currentPlayer = "player1";
