@@ -44,7 +44,6 @@ function placeOpponentShips(){
                     if (i >= 10 || board[row][i] === 1 || board[row][i] === null ) {// 
                         allowShip = false;
                         break;
-                        
                         }else{
                         allowShip = true;
                         }
@@ -55,7 +54,6 @@ function placeOpponentShips(){
                         let newCol = i + 1
                         // console.log("Column is " + col +" and row is " + row);
                         document.addEventListener('DOMContentLoaded', function() {
-                            // Your JavaScript code here
                             addShipNameToBoard(row,newCol,shipName);
                         });
                     
@@ -81,7 +79,7 @@ function placeOpponentShips(){
                     }
                 if(allowShip) {
                     for (let i = row; i < row + count; i++) {
-                        board[i][col] = 1;
+                        board[i][col-1] = 1;//added -1 so that it aligns
                         // console.log("Col is " + col +" and row is " + i);
                         document.addEventListener('DOMContentLoaded', function() {//waits untill dom is fully loaded
                             addShipNameToBoard(i,col,shipName);
@@ -109,7 +107,7 @@ function placeOpponentShips(){
             if (displayBoardPiece) {
                 displayBoardPiece.dataset.ship = shipName;
                 console.log(displayBoardPiece.dataset.ship);
-                displayBoardPiece.style.backgroundColor = "red";
+                displayBoardPiece.style.backgroundColor = "purple";
             } else {
                 console.log(`Element not found for row ${row} and column ${column}`);
             }

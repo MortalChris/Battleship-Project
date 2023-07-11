@@ -41,7 +41,7 @@ function startGame(){
                     
                     displayHitOrMiss(displayBoardPiece2);
                     console.log(displayBoardPiece2.dataset.ship);
-                    player2[pieceSelectedShip].hit();
+                    player2[pieceSelectedShip].hit;
                 }else{
                     console.log("You Missed");
                 }
@@ -51,7 +51,7 @@ function startGame(){
 
 
     function displayHitOrMiss(displayBoardPiece2){
-        displayBoardPiece2.style.backgroundColor = "red";
+        displayBoardPiece2.style.backgroundColor = "puple";
     }
 
     let currentPlayer = "player1";
