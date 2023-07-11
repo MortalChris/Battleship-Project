@@ -95,9 +95,10 @@ function placeOpponentShips(){
 
         function addShipNameToBoard(row, column){
             const displayBoardPiece = document.querySelector(`.player2-board-piece[data-row="${row}"][data-column="${column}"]`);
-            console.log(displayBoardPiece);
+            console.log("This is board" + displayBoardPiece);
             if (displayBoardPiece) {
                 displayBoardPiece.dataset.ship = randomShip;
+                console.log(displayBoardPiece.dataset.ship);
                 // displayBoardPiece.style.backgroundColor = "red";
             } else {
                 console.log(`Element not found for row ${row} and column ${column}`);

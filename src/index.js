@@ -7,7 +7,7 @@ import {startGame} from './startGame.js';
 import {placeOpponentShips} from './placeOpponentShips.js';
 // const ships = shipFunc();
 gameBoardCreation();
-players();
+// players();
 // const gameBoardArrayOpponent = placeOpponentShips();
 placeShips();
 startGame();

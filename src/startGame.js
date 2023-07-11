@@ -1,10 +1,10 @@
 import {players} from './player.js';
-const {player2} = players();
 import {placeOpponentShips} from './placeOpponentShips.js';
+const {player2} = players();
 const gameBoardArrayOpponent = placeOpponentShips();
 
 function startGame(){
-const turnText = document.getElementById("turn-text");
+    const turnText = document.getElementById("turn-text");
 
     function checkIfAllShipsPlaced(){
         let numberTitle = document.querySelector("title");
@@ -32,10 +32,15 @@ const turnText = document.getElementById("turn-text");
         player2Board.forEach((piece) => {
             piece.addEventListener('click', () => {
                 let p2Col = piece.dataset.column;
-                let p2Row = piece.dataset.column;
+                let p2Row = piece.dataset.row;
 
                 if (gameBoardArrayOpponent[p2Row][p2Col] === 1){
                     //execute player2 dmg object function
+                    const displayBoardPiece2 = document.querySelector(`.player2-board-piece[data-row="${p2Row}"][data-column="${p2Col}"]`);
+                    let pieceSelectedShip = displayBoardPiece2.dataset.ship;
+                    
+                    displayHitOrMiss(displayBoardPiece2);
+                    console.log(displayBoardPiece2.dataset.ship);
                     player2[pieceSelectedShip].hit();
                 }else{
                     console.log("You Missed");
@@ -45,9 +50,12 @@ const turnText = document.getElementById("turn-text");
     };
 
 
+    function displayHitOrMiss(displayBoardPiece2){
+        displayBoardPiece2.style.backgroundColor = "red";
+    }
+
     let currentPlayer = "player1";
     function turn(){// switch players
-
         if (currentPlayer === "player1") {
             currentPlayer = "player2";
             turnText.textContent = "It's " + currentPlayer + " turn";
