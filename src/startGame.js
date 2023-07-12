@@ -27,36 +27,53 @@ function startGame(){
     }checkIfAllShipsPlaced();
 
 
-    function attackPlayer2Board(){
-        const player2Board = document.querySelectorAll(".player2-board-piece");
+function attackPlayer2Board(){
+    // const player2Board = document.querySelectorAll(".player2-board-piece");
+    //     if(currentPlayer === "player1"){
 
+
+    //     }else{
+    //         console.log("Not Your Turn");
+    //     }
+    
         player2Board.forEach((piece) => {
             piece.addEventListener('click', () => {
+                let hit = false;
+                let miss = false;
+
                 let p2Col = parseInt(piece.dataset.column) - 1;
                 let p2Row = parseInt(piece.dataset.row);
-                console.log(p2Col + ":Col   Row:" + p2Row);
-                console.log(gameBoardArrayOpponent[p2Row]);
-
+                // console.log(p2Col + ":Col   Row:" + p2Row);
+                // console.log(gameBoardArrayOpponent[p2Row]);
+                const displayBoardPiece2 = document.querySelector(`.player2-board-piece[data-row="${p2Row}"][data-column="${p2Col + 1}"]`);
                 if (gameBoardArrayOpponent[p2Row][p2Col] === 1){//execute player2 dmg object function
-                    const displayBoardPiece2 = document.querySelector(`.player2-board-piece[data-row="${p2Row}"][data-column="${p2Col + 1}"]`);
                     let pieceSelectedShip = displayBoardPiece2.dataset.ship;
-                    
-                    console.log(displayBoardPiece2.dataset.ship);
-                    console.log(player2);
+                    // console.log(displayBoardPiece2.dataset.ship);
+                    // console.log(player2);
                     player2[pieceSelectedShip].hit;
-                    console.log(player2);
+                    // console.log(player2);
 
-                    displayHitOrMiss(displayBoardPiece2);
-                }else{
-                    console.log("You Missed");
+                    hit =  true;
+                    displayHitOrMiss(displayBoardPiece2,hit, miss);
+                    console.log("You Hit");
+                }else if(gameBoardArrayOpponent[p2Row][p2Col] === 0){
+                    miss = true;
+                    displayHitOrMiss(displayBoardPiece2,hit, miss);
+                    console.log("You Missed");////////////////////////////////////This should eventually be textcontent
                 }
             })
         })
     };
 
 
-    function displayHitOrMiss(displayBoardPiece2){
-        displayBoardPiece2.style.backgroundColor = "red";
+    function displayHitOrMiss(displayBoardPiece2, hit, miss){
+        if(hit){
+            displayBoardPiece2.style.backgroundColor = "red";
+        }else if(miss){
+            displayBoardPiece2.style.backgroundColor = "black";
+            turn();
+        }
+
     }
 
     let currentPlayer = "player1";
@@ -64,11 +81,11 @@ function startGame(){
         if (currentPlayer === "player1") {
             currentPlayer = "player2";
             turnText.textContent = "It's " + currentPlayer + " turn";
-            console.log("Its player2's turn");
+            console.log("Its player2's turn");//////////////////////////////////////////////////////
         } else {
             currentPlayer = "player1";
             turnText.textContent = "It's " + currentPlayer + " turn";
-            console.log("Its player1's turn");
+            console.log("Its player1's turn");//////////////////////////////////////////////////////
             }
     };
 
