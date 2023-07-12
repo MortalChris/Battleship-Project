@@ -9,11 +9,7 @@ function shipFunc(){
                 hit(){
                     this.dmg++
                 },
-                isSunk(){
-                    if (this.dmg == this.health){
-                        return true;
-                    }
-                },
+                isSunk: false,
                 length: 5
             },
             battleship: {
@@ -22,11 +18,7 @@ function shipFunc(){
                 hit(){
                     this.dmg++
                 },
-                isSunk(){
-                    if (this.dmg == this.health){
-                        return true;
-                    }
-                },
+                isSunk: false,
                 length: 4
             },
             cruiser: {
@@ -35,11 +27,7 @@ function shipFunc(){
                 hit(){
                     this.dmg++
                 },
-                isSunk(){
-                    if (this.dmg == this.health){
-                        return true;
-                    }
-                },
+                isSunk: false,
                 length: 3
             },
             submarine: {
@@ -48,11 +36,7 @@ function shipFunc(){
                 hit(){
                     this.dmg++
                 },
-                isSunk(){
-                    if (this.dmg == this.health){
-                        return true;
-                    }
-                },
+                isSunk: false,
                 length: 3
             },
             destroyer: {
@@ -61,11 +45,7 @@ function shipFunc(){
                 hit(){
                     this.dmg++
                 },
-                isSunk(){
-                    if (this.dmg == this.health){
-                        return true;
-                    }
-                },
+                isSunk: false,
                 length: 2
             }
     };
